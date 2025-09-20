@@ -13,7 +13,6 @@ body {
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-bottom: 70px; /* مساحة للقائمة السفلية */
 }
 
 /* تحسين الشريط العلوي */
@@ -106,52 +105,12 @@ body {
   color: white;
 }
 
-/* القائمة السفلية للتطبيق */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #0f0f0f;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 1000;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.bottom-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #ccc;
-  text-decoration: none;
-  font-size: 0.8rem;
-  padding: 8px;
-  transition: 0.3s;
-}
-
-.bottom-nav-item i {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-}
-
-.bottom-nav-item.active {
-  color: gold;
-}
-
-.bottom-nav-item:hover {
-  color: gold;
-}
-
 /* تحسين قسم الرئيسية */
 #home {
   width: 100%;
   height: 100vh;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
-    url("img/hero.jpg") center/cover no-repeat;
+    url(img/hero.jpg) center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -344,33 +303,6 @@ h2:after {
   color: gold;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
-}
-
-.wishlist {
-  padding: 10px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  color: #ccc;
-  border: 2px solid #ccc;
-}
-
-.wishlist.active {
-  color: #ff4d4d;
-  border-color: #ff4d4d;
-}
-
-.wishlist:hover {
-  color: #ff4d4d;
-  border-color: #ff4d4d;
-  transform: translateY(-3px);
 }
 
 /* تحسين قسم عنا بشكل كبير */
@@ -667,7 +599,7 @@ footer .developer a:hover {
 /* زر الرجوع للأعلى */
 #scrollTopBtn {
   position: fixed;
-  bottom: 90px;
+  bottom: 30px;
   right: 30px;
   width: 60px;
   height: 60px;
@@ -962,7 +894,7 @@ footer .developer a:hover {
   color: gold;
   font-size: 1.5rem;
 }
-#checkoutForm .form-group {
+#checkoutForm .form-group{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -994,7 +926,7 @@ footer .developer a:hover {
   border-radius: 20px;
   transition: 0.5s;
 }
-#checkoutForm button:hover {
+#checkoutForm button:hover{
   background-color: #09fc09;
 }
 /* القائمة المنبثقة للهواتف */
@@ -1186,7 +1118,7 @@ footer .developer a:hover {
     width: 50px;
     height: 50px;
     font-size: 1.2rem;
-    bottom: 80px;
+    bottom: 20px;
     right: 20px;
   }
 
@@ -1195,15 +1127,6 @@ footer .developer a:hover {
   }
   .add-to-cart-btn span {
     display: block;
-  }
-
-  .bottom-nav-item span {
-    display: none;
-  }
-
-  .bottom-nav-item i {
-    font-size: 1.5rem;
-    margin-bottom: 0;
   }
 }
 
@@ -1225,30 +1148,4 @@ footer .developer a:hover {
     width: 50px;
     height: 50px;
   }
-}
-
-/* إشعار التثبيت */
-.install-notification {
-  position: fixed;
-  bottom: 70px;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to right, #0f0f0f, #2c2c2c);
-  color: white;
-  padding: 15px;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1001;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.install-notification button {
-  background: gold;
-  color: #222;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
 }
