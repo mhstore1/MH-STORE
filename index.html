@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000">
+    <title>MH STORE - متجر الساعات والإكسسوارات الفاخرة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="manifest" id="app-manifest" href="data:application/json;base64,ewogICJuYW1lIjogIk1IIFNPUkUiLAogICJzaG9ydF9uYW1lIjogIk1IIFNPUkUiLAogICJkZXNjcmlwdGlvbiI6ICJcdTA2NDRcdTA2MzVcdTA2NDZcdTA2MjEgXHUwNjI3XHUwNjMxXHUwNjQ4XHUwNjIzXHUwNjQ2XHUwNjJhXHUwNjQ1IFx1MDY0Nlx1MDYyYVx1MDYyN1x1MDY0NiBcdTA2MjdcdTA2NDJcdTA2NDZcdTA2NDRcdTA2NDZcdTA2MmEiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFhMWExYSIsCiAgInRoZW1lX2NvbG9yIjogIiNmZmRmMDAiLAogICJvcmllbnRhdGlvbiI6ICJhbnkiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJpY29uLTE5MngxOTIucG5nIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICJ0eXBlIjogImltYWdlL3BuZyIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiaWNvbi01MTJ4NTEyLnBuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0KfQ==">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Tajawal", sans-serif;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding-bottom: 70px; /* مساحة للقائمة السفلية */
+        }
+
+        /* تحسين الشريط العلوي */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            width: 100%;
+            height: 80px;
+            background-color: #0f0f0f;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar .logo span {
+            color: gold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .navbar ul a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .navbar ul a:hover {
+            color: gold;
+            background-color: rgba(255, 217, 0, 0.1);
+        }
+
+        .navbar .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .cart-icon:hover {
+            color: gold;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: gold;
+            color: #222;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* القائمة السفلية للتطبيق */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #0f0f0f;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 8px;
+            transition: 0.3s;
+        }
+
+        .bottom-nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .bottom-nav-item.active {
+            color: gold;
+        }
+
+        .bottom-nav-item:hover {
+            color: gold;
+        }
+
+        /* تحسين قسم الرئيسية */
+        #home {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('img/hero.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            margin-top: 80px;
+            text-align: right;
+        }
+
+        #home .content {
+            width: 50%;
+        }
+
+        #home .content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        #home .content p {
+            letter-spacing: 1px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: gold;
+            color: #222 !important;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid gold;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: gold !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
+        }
+
+        /* تحسين قسم المنتجات */
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: gold;
+            margin: 40px 0;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: gold;
+            border-radius: 3px;
+        }
+
+        #product {
+            margin-top: 30px;
+            padding: 30px;
+            width: 95%;
+            border-radius: 20px;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #product .card {
+            width: 300px;
+            height: 520px;
+            padding: 20px;
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #product .card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: gold;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        #product .card:hover:before {
+            transform: scaleX(1);
+        }
+
+        #product .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(173, 152, 31, 0.4);
+        }
+
+        #product .card .image-container {
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #product .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        #product .card img:hover {
+            transform: scale(1.05);
+        }
+
+        #product .card h3 {
+            color: gold;
+            font-size: 1.5rem;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        #product .card p {
+            font-size: 16px;
+            text-align: center;
+            color: #ccc;
+            margin: 10px 0;
+            line-height: 1.6;
+            height: 80px;
+            overflow: hidden;
+        }
+
+        #product .card .price {
+            color: gold;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .add-to-cart-btn {
+            width: 180px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background-color: gold;
+            color: #222;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #222;
+            color: gold;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
+        }
+
+        .wishlist {
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: #ccc;
+            border: 2px solid #ccc;
+        }
+
+        .wishlist.active {
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+
+        .wishlist:hover {
+            color: #ff4d4d;
+            border-color: #ff4d4d;
+            transform: translateY(-3px);
+        }
+
+        /* تحسين قسم عنا بشكل كبير */
+        #about {
+            margin-top: 30px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(to bottom, #1a1a1a, #2c2c2c);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        #about .content2 {
+            width: 50%;
+        }
+
+        #about .content2 h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        #about .content2 h1:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: gold;
+            border-radius: 3px;
+        }
+
+        #about .content2 h1 span {
+            color: gold;
+        }
+
+        #about .content2 p {
+            width: 100%;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 217, 0, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            width: calc(50% - 10px);
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 217, 0, 0.2);
+        }
+
+        .feature i {
+            color: gold;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+
+        #about .gallary {
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            height: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #about .gallary .main {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #about .gallary .main img {
+            width: 90%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #about .gallary .main img:hover {
+            transform: scale(1.02);
+        }
+
+        #about .gallary .photos {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #about .gallary .photos img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px;
+            border: 2px solid transparent;
+        }
+
+        #about .gallary .photos img:hover {
+            transform: scale(1.1);
+            border: 2px solid gold;
+        }
+
+        /* تحسين قسم الاتصال */
+        #contact {
+            margin-top: 30px;
+            padding: 40px;
+            width: 90%;
+            border-radius: 20px;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        #contact .content3 {
+            width: 50%;
+        }
+
+        #contact .content3 h3 {
+            color: gold;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        #contact .content3 p {
+            letter-spacing: 1px;
+            line-height: 1.8;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        #contact .content3 p i {
+            color: gold;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+
+        #contact .form {
+            padding: 30px;
+            width: 50%;
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact .form h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: gold;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #contact .form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: gold;
+        }
+
+        #contact .form input,
+        #contact .form textarea {
+            padding: 15px;
+            width: 100%;
+            background-color: #333;
+            border: 1px solid #444;
+            outline: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        #contact .form input:focus,
+        #contact .form textarea:focus {
+            border-color: gold;
+            box-shadow: 0 0 10px rgba(255, 217, 0, 0.3);
+        }
+
+        #contact .form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        #contact .form button {
+            padding: 15px;
+            width: 100%;
+            background-color: gold;
+            color: #222;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        #contact .form button:hover {
+            background-color: #222;
+            color: gold;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
+        }
+
+        /* تحسين الفوتر */
+        footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+            padding: 30px;
+            background-color: #0f0f0f;
+            text-align: center;
+            gap: 10px;
+        }
+
+        footer h3 {
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        footer h3 span {
+            color: gold;
+        }
+
+        footer .developer {
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        footer .developer a {
+            color: gold;
+            text-decoration: none;
+        }
+
+        footer .developer a:hover {
+            text-decoration: underline;
+        }
+
+        /* زر الرجوع للأعلى */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: gold;
+            color: #222;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #222;
+            color: gold;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #scrollTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* نافذة الطلب */
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid gold;
+            padding-bottom: 10px;
+        }
+
+        .modal-header h3 {
+            color: gold;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* نافذة سلة التسوق */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-content {
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid gold;
+            padding-bottom: 10px;
+        }
+
+        .cart-header h3 {
+            color: gold;
+            font-size: 1.5rem;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-left: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-details p {
+            color: gold;
+            font-weight: bold;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            background: #333;
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            background: #444;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-summary {
+            border-top: 1px solid gold;
+            padding-top: 15px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .cart-total h4 {
+            color: white;
+        }
+
+        .cart-total p {
+            color: gold;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .continue-shopping {
+            background: #444;
+            color: white;
+        }
+
+        .checkout {
+            background: gold;
+            color: #222;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 30px 0;
+            color: #ccc;
+        }
+
+        .empty-cart i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* نافذة تأكيد الطلب */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkout-content {
+            
+            background: linear-gradient(145deg, #2c2c2c, #242424);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .checkout-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid gold;
+            padding-bottom: 10px;
+        }
+
+        .checkout-header h3 {
+            color: gold;
+            font-size: 1.5rem;
+        }
+        /* القائمة المنبثقة للهواتف */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 100%;
+            background-color: #0f0f0f;
+            z-index: 999;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .mobile-menu ul a:hover {
+            color: gold;
+            background-color: rgba(255, 217, 0, 0.1);
+        }
+
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 1200px) {
+            #product .card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .burger-menu {
+                display: block;
+            }
+
+            #home .content {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #home .content h1 {
+                font-size: 2.5rem;
+            }
+
+            #about,
+            #contact {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            #about .content2,
+            #about .gallary,
+            #contact .content3,
+            #contact .form {
+                width: 100%;
+            }
+
+            #about .gallary {
+                height: 400px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .feature {
+                width: 100%;
+            }
+
+            #product .card {
+                width: calc(50% - 20px);
+                height: auto;
+                min-height: 520px;
+            }
+
+            .cart-content {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #product .card {
+                width: 100%;
+            }
+
+            #about {
+                padding: 20px;
+            }
+
+            #about .gallary {
+                height: 350px;
+            }
+
+            #about .gallary .photos img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item-info {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            .cart-item-quantity {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .cart-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cart-btn {
+                width: 100%;
+            }
+
+            
+
+            .add-to-cart-btn {
+                padding: 10px;
+                width: 180px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar .logo {
+                font-size: 1.5rem;
+            }
+
+            #home .content h1 {
+                font-size: 2rem;
+            }
+
+            #home .content p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            #product,
+            #about,
+            #contact {
+                padding: 20px;
+                width: 95%;
+            }
+
+            #about .gallary {
+                height: 300px;
+            }
+
+            #contact .form {
+                padding: 20px;
+            }
+
+            #scrollTopBtn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                bottom: 80px;
+                right: 20px;
+            }
+
+            #product .card {
+                width: 100%;
+            }
+            .add-to-cart-btn span {
+                display: block;
+            }
+
+            .bottom-nav-item span {
+                display: none;
+            }
+
+            .bottom-nav-item i {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #about .gallary .photos img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .feature {
+                padding: 8px 12px;
+            }
+
+            .feature i {
+                font-size: 1rem;
+            }
+
+            .cart-item-image {
+                width: 50px;
+                height: 50px;
+            }
+
+        }
+
+        /* إشعار التثبيت */
+        .install-notification {
+            position: fixed;
+            bottom: 70px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #0f0f0f, #2c2c2c);
+            color: white;
+            padding: 15px;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1001;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .install-notification button {
+            background: gold;
+            color: #222;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button id="scrollTopBtn" title="الرجوع للأعلى"><i class="fas fa-arrow-up"></i></button>
+    
+    <!-- شريط التنقل -->
+    <div class="navbar">
+        <a href="index.html" class="logo">M<span>H STORE</span></a>
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#product">المنتجات</a></li>
+            <li><a href="#about">عنا</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="burger-menu" id="burgerMenu">
+                <i class="fas fa-bars" id="burgerIcon"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- القائمة السفلية للتطبيق -->
+    <div class="bottom-nav">
+        <a href="#home" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="#product" class="bottom-nav-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>المنتجات</span>
+        </a>
+        <a href="#contact" class="bottom-nav-item">
+            <i class="fas fa-phone"></i>
+            <span>اتصل بنا</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="installBtn">
+            <i class="fas fa-download"></i>
+            <span>تثبيت التطبيق</span>
+        </a>
+    </div>
+    
+    <!-- إشعار التثبيت -->
+    <div class="install-notification" id="installNotification">
+        <span>تثبيت تطبيق MH STORE على جهازك</span>
+        <button id="installButton">تثبيت</button>
+    </div>
+    
+    <!-- القائمة المنبثقة للهواتف -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#product">المنتجات</a></li>
+            <li><a href="#about">عنا</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+    </div>
+    
+    <!-- قسم الرئيسية -->
+    <section id="home">
+        <div class="content">
+            <h1>مرحبا بكم في متجرنا</h1>
+            <p>
+                MH STORE هنا حيث ستجد كل ما تبحث عنه من ساعات فاخرة وحقائب أنيقة وغيرها من
+                الاكسسوارات عالية الجودة. ما عليك سوى الطلب وسيصلك المنتج الذي اخترته في أسرع وقت
+                ممكن في جميع انحاء مدينة الدار البيضاء.
+            </p>
+            <a href="#product" class="cta-button">تصفح المنتجات</a>
+        </div>
+    </section>
+    
+    <!-- قسم المنتجات -->
+    <h2>المنتجات</h2>
+    <section id="product">
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img1.jpeg" alt="ساعة رجالية أنيقة" />
+            </div>
+            <h3>Tissot PRX </h3>
+             <p>ساعة Tissot PRX أنيقة وعملية، تصميم كلاسيكي مع صناعة سويسرية عالية الجودة.</p>
+            <div class="price">170 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('Tissot PRX', 170, 'img/img1.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img2.jpeg" alt="ساعة رياضية" />
+            </div>
+            <h3> G-SHOCK شفافة</h3>
+            <p>G-SHOCK CASIO (شفافة/سوداء)  
+ستايل عصري وكاجوال، كتجمع بين الأناقة والصلابة  </p>
+            <div class="price">140 د.م</div>
+<div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('G-SHOCK 1', 140, 'img/img2.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img3.jpeg" alt="ساعة نسائية" />
+            </div>
+            <h3> G-SHOCK رمادية</h3>
+            <p>G-SHOCK CASIO (رمادية بعدة ألوان)  
+ساعة سبور وعملية </p>
+            <div class="price">140 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('G-SHOCK 2', 140, 'img/img3.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img4.jpeg" alt="ساعة ذكية" />
+            </div>
+            <h3> G-SHOCK black</h3>
+            <p>G-SHOCK CASIO 
+  ساعة سبور وعملية ستايل عصري وكاجوال، كتجمع بين الأناقة والصلابة مضاضة للماء</p>
+            <div class="price">140 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('G-SHOCK 3', 140, 'img/img4.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img5.jpeg" alt="ساعة فاخرة" />
+            </div>
+            <h3>Rolex sumbariner green</h3>
+           <p>ساعة بتصميم أنيق وعصري تناسب الرجال في جميع المناسبات</p>
+            <div class="price">130 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('Rolex sumbariner 1', 130, 'img/img5.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img6.jpeg" alt="ساعة كلاسيكية" />
+            </div>
+            <h3>Rolex sumbariner blue</h3>
+            <p>ساعة بتصميم أنيق وعصري تناسب الرجال في جميع المناسبات</p>
+            <div class="price">130 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('Rolex sumbariner 2', 130, 'img/img6.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img7.jpeg" alt="ساعة رياضية حديثة" />
+            </div>
+            <h3>Rolex sumbariner gold</h3>
+            <p>ساعة بتصميم أنيق وعصري تناسب الرجال في جميع المناسبات</p>
+            <div class="price">130 د.م</div>
+           <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('Rolex sumbariner 3', 130, 'img/img7.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-container">
+                <img src="img/img8.jpeg" alt="ساعة أنيقة" />
+            </div>
+            <h3>Rolex sumbariner black</h3>
+            <p>ساعة بتصميم أنيق وعصري تناسب الرجال في جميع المناسبات</p>
+            <div class="price">130 د.م</div>
+            <div class="card-actions">
+                <button class="add-to-cart-btn" onclick="addToCart('Rolex sumbariner 4', 130, 'img/img8.jpeg')">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>إضافة إلى السلة</span>
+                </button>
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم عنا -->
+    <h2>عنا</h2>
+    <section id="about">
+        <div class="content2">
+            <h1>M<span>H STORE</span></h1>
+            <p>
+                MH STORE هو متجر متخصص في بيع الساعات والإكسسوارات بجودة عالية وأسعار مناسبة. 
+                نقدم لكم أحدث الموديلات والعروض مع ضمان الجودة والخدمة السريعة.
+            </p>
+            <p>
+                نسعى دائمًا لتلبية احتياجات عملائنا الكرام وتقديم أفضل المنتجات بأعلى معايير الجودة.
+                نفتخر بثقة عملائنا التي كسبناها على مر السنين من خلال الالتزام بالجودة والموثوقية.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>توصيل سريع لكل أنحاء الدار البيضاء</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>ضمان الجودة والمنشأ</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <span>خدمة عملاء على مدار الساعة</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-undo"></i>
+                    <span>إمكانية الاسترجاع خلال 7 أيام</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallary">
+            <div class="main">
+                <img src="img/img1.jpeg" name="main" alt="صورة المتجر" />
+            </div>
+            <div class="photos">
+                <img onmouseenter="main.src = this.src" src="img/img1.jpeg" alt="صورة 1" />
+                <img onmouseenter="main.src = this.src" src="img/img2.jpeg" alt="صورة 2" />
+                <img onmouseenter="main.src = this.src" src="img/img3.jpeg" alt="صورة 3" />
+                <img onmouseenter="main.src = this.src" src="img/img4.jpeg" alt="صورة 4" />
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الاتصال -->
+    <h2>اتصل بنا</h2>
+    <section id="contact">
+        <div class="content3">
+            <h3>يمكنك التواصل معنا عن طريق :</h3>
+            <p><i class="fas fa-phone"></i> رقم الهاتف: 0637040284</p>
+            <p><i class="fas fa-envelope"></i> الايميل: info@mhstore.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> العنوان: الدار البيضاء، المغرب</p>
+            <p><i class="fab fa-whatsapp"></i> واتساب: 0637040284</p>
+        </div>
+        <div class="form">
+            <h3>أرسل لنا رسالة</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">الاسم الكامل</label>
+                    <input type="text" id="name" placeholder="أدخل اسمك الكامل" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" placeholder="اكتب رسالتك هنا" required></textarea>
+                </div>
+                <button type="submit" >إرسال الرسالة</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- الفوتر -->
+    <footer>
+        <h3>&copy; 2025 جميع الحقوق محفوظة <span>MH STORE</span></h3>
+        <div class="developer">
+            تم صنع التطبيق من طرف <a target="_blank" href="https://wa.me/212614501203">يعقوب العودي</a> - الواتساب: <a target="_blank" href="https://wa.me/212614501203">0614501203</a>
+        </div>
+    </footer>
+    
+    <!-- نافذة سلة التسوق -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>سلة التسوق</h3>
+                <button class="close-modal" onclick="closeCartModal()">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- سيتم إضافة العناصر هنا عبر JavaScript -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>سلة التسوق فارغة</p>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <h4>المجموع:</h4>
+                    <p id="cartTotal">0 د.م</p>
+                </div>
+                <div class="cart-buttons">
+                    <button class="cart-btn continue-shopping" onclick="closeCartModal()">مواصلة التسوق</button>
+                    <button class="cart-btn checkout" onclick="openCheckoutModal()">إتمام الطلب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- نافذة تأكيد الطلب -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3>إتمام الطلب</h3>
+                <button class="close-modal" onclick="closeCheckoutModal()">&times;</button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="customerName" >الاسم الكامل</label>
+                    <input style="color: white; width: 250px;background-color: #485748;height: 40px;border: none;outline: none;margin: 4px 0;" type="text" id="customerName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerPhone">رقم الهاتف</label>
+                    <input style="color: white; width: 250px;background-color: #485748;height: 40px;border: none;outline: none;;margin: 4px 0;" type="tel" id="customerPhone" placeholder="أدخل رقم هاتفك" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerAddress">العنوان بالتفصيل</label>
+                    <input style="color: white; width: 250px;background-color: #485748;height: 40px;border: none;outline: none;;margin: 4px 0;"type="text" id="customerAddress" placeholder="أدخل عنوانك بالتفصيل" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerNotes">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="customerNotes" style="color: white; width: 250px;background-color: #485748;height: 40px;border: none;outline: none;;margin: 4px 0;" placeholder="أضف أي ملاحظات خاصة بالطلب"></textarea>
+                </div>
+                <button type="submit" style="color: white; width: 200px;background-color: #09fc09;height: 60px;cursor: pointer; border: none;border-radius: 20px;">إرسال الطلب عبر الواتساب</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // إظهار زر الرجوع للأعلى عند التمرير
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+        
+        // تمرير ناعم للأعلى عند الضغط
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // تفعيل زر القلب
+        function toggleWishlist(button) {
+            button.classList.toggle('active');
+        }
+        
+        // إدارة القائمة المنبثقة للهواتف
+        const burgerMenu = document.getElementById('burgerMenu');
+        const burgerIcon = document.getElementById('burgerIcon');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+        
+        burgerMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuOpen = !menuOpen;
+            
+            if (menuOpen) {
+                burgerIcon.classList.remove('fa-bars');
+                burgerIcon.classList.add('fa-times');
+            } else {
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars');
+            }
+        });
+        
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars');
+                menuOpen = false;
+            });
+        });
+        
+        // إدارة سلة التسوق
+        let cart = [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutModal = document.getElementById('checkoutModal');
+        
+        // فتح سلة التسوق
+        cartIcon.addEventListener('click', () => {
+            cartModal.style.display = 'flex';
+            updateCartDisplay();
+        });
+        
+        // إغلاق سلة التسوق
+        function closeCartModal() {
+            cartModal.style.display = 'none';
+        }
+        
+        // فتح نافذة تأكيد الطلب
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert('سلة التسوق فارغة، أضف منتجات أولاً');
+                return;
+            }
+            
+            closeCartModal();
+            checkoutModal.style.display = 'flex';
+        }
+        
+        // إغلاق نافذة تأكيد الطلب
+        function closeCheckoutModal() {
+            checkoutModal.style.display = 'none';
+        }
+        
+        // إضافة منتج إلى السلة
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            showNotification('تمت إضافة المنتج إلى السلة');
+        }
+        
+        // تحديث عدد العناصر في السلة
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // تحديث عرض سلة التسوق
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>سلة التسوق فارغة</p>
+                    </div>
+                `;
+                cartTotal.textContent = '0 د.م';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-image">
+                                <img src="${item.image}" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.price} د.م</p>
+                            </div>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                            <button class="quantity-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                            <button class="remove-item" onclick="removeFromCart(${index})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = `${total} د.م`;
+        }
+        
+        // تغيير كمية المنتج
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            
+            if (cart[index].quantity < 1) {
+                cart[index].quantity = 1;
+            }
+            
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // تحديث كمية المنتج
+        function updateQuantity(index, value) {
+            const quantity = parseInt(value);
+            
+            if (isNaN(quantity) || quantity < 1) {
+                cart[index].quantity = 1;
+            } else {
+                cart[index].quantity = quantity;
+            }
+            
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // إزالة منتج من السلة
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // إتمام عملية الشراء
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const notes = document.getElementById('customerNotes').value;
+            
+            let message = 'طلب جديد من MH STORE\n--------------------------\n';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                message += `${item.name} - ${item.quantity} × ${item.price} د.م = ${itemTotal} د.م\n`;
+            });
+            
+            message += `--------------------------\nالمجموع: ${total} د.م\n\n`;
+            message += `معلومات العميل:\nالاسم: ${name}\nالهاتف: ${phone}\nالعنوان: ${address}\n`;
+            
+            if (notes) {
+                message += `ملاحظات: ${notes}\n`;
+            }
+            
+            message += '\nشكراً لكم على ثقتكم في متجرنا!';
+            
+            const whatsappURL = `https://wa.me/212712825177?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // تفريغ السلة بعد إتمام الطلب
+            cart = [];
+            updateCartCount();
+            closeCheckoutModal();
+            this.reset();
+            
+            showNotification('تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً.');
+        });
+        
+        // إظهار إشعار
+        function showNotification(message) {
+            // يمكنك إضافة كود لإظهار إشعار هنا
+            alert(message);
+        }
+        
+        // إرسال نموذج الاتصال
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            const fullMessage = `
+رسالة تواصل من MH STORE
+--------------------------
+اسم المرسل: ${name}
+رقم الهاتف: ${phone}
+الرسالة: ${message}
+            `.trim();
+            
+            const whatsappURL = `https://wa.me/212712825177?text=${encodeURIComponent(fullMessage)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // تفريغ الحقول
+            this.reset();
+            
+            alert('شكراً لتواصلكم، سيتم فتح الواتساب للرد عليكم في اسرع وقت ');
+        });
+
+        // إدارة القائمة السفلية
+        document.querySelectorAll('.bottom-nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.id === 'installBtn') {
+                    e.preventDefault();
+                    promptInstall();
+                    return;
+                }
+                
+                document.querySelectorAll('.bottom-nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // تثبيت التطبيق كـ PWA
+        let deferredPrompt;
+        const installNotification = document.getElementById('installNotification');
+        const installButton = document.getElementById('installButton');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installNotification.style.display = 'flex';
+        });
+
+        installButton.addEventListener('click', () => {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('تم قبول التثبيت');
+                } else {
+                    console.log('تم رفض التثبيت');
+                }
+                deferredPrompt = null;
+                installNotification.style.display = 'none';
+            });
+        });
+
+        function promptInstall() {
+            if (!deferredPrompt) {
+                alert('لتثبيت التطبيق، استخدم خلية "إضافة إلى الشاشة الرئيسية" في متصفحك');
+                return;
+            }
+            
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('تم قبول التثبيت');
+                } else {
+                    console.log('تم رفض التثبيت');
+                }
+                deferredPrompt = null;
+            });
+        }
+
+        // تسجيل Service Worker للتطبيق
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('Service Worker مسجل بنجاح:', registration);
+                })
+                .catch((registrationError) => {
+                    console.log('فشل تسجيل Service Worker:', registrationError);
+                });
+            });
+        }
+    </script>
+    <script>
+// تسجيل Service Worker للتخزين المؤقت
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('ServiceWorker registration successful');
+      })
+      .catch(function(error) {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+  });
+}
+
+// إنشاء ملف sw.js في نفس مجلد index.html
+// محتوى ملف sw.js:
+const CACHE_NAME = 'mh-store-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/script.js',
+  '/img/hero.jpg',
+  '/img/img1.jpeg',
+  '/img/img2.jpeg',
+  '/img/img3.jpeg',
+  '/img/img4.jpeg',
+  '/img/img5.jpeg',
+  '/img/img6.jpeg',
+  '/img/img7.jpeg',
+  '/img/img8.jpeg'
+];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
+</script>
+</body>
+</html>
