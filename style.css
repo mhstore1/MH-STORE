@@ -60,10 +60,6 @@ body {
   border-radius: 5px;
 }
 
-.navbar ul a:hover {
-  color: gold;
-  background-color: rgba(255, 217, 0, 0.1);
-}
 
 .navbar .nav-buttons {
   display: flex;
@@ -79,9 +75,7 @@ body {
   transition: 0.3s;
 }
 
-.cart-icon:hover {
-  color: gold;
-}
+
 
 .cart-count {
   position: absolute;
@@ -142,9 +136,7 @@ body {
   color: gold;
 }
 
-.bottom-nav-item:hover {
-  color: gold;
-}
+
 
 /* تحسين قسم الرئيسية */
 #home {
@@ -190,12 +182,6 @@ body {
   border: 2px solid gold;
 }
 
-.cta-button:hover {
-  background-color: transparent;
-  color: gold !important;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
-}
 
 /* تحسين قسم المنتجات */
 h2 {
@@ -261,15 +247,6 @@ h2:after {
   transition: transform 0.3s;
 }
 
-#product .card:hover:before {
-  transform: scaleX(1);
-}
-
-#product .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(173, 152, 31, 0.4);
-}
-
 #product .card .image-container {
   width: 250px;
   height: 250px;
@@ -285,10 +262,6 @@ h2:after {
   height: 100%;
   object-fit: cover;
   transition: 0.3s;
-}
-
-#product .card img:hover {
-  transform: scale(1.05);
 }
 
 #product .card h3 {
@@ -339,12 +312,7 @@ h2:after {
   font-weight: bold;
 }
 
-.add-to-cart-btn:hover {
-  background-color: #222;
-  color: gold;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
-}
+
 
 .wishlist {
   padding: 10px;
@@ -362,16 +330,7 @@ h2:after {
   border: 2px solid #ccc;
 }
 
-.wishlist.active {
-  color: #ff4d4d;
-  border-color: #ff4d4d;
-}
 
-.wishlist:hover {
-  color: #ff4d4d;
-  border-color: #ff4d4d;
-  transform: translateY(-3px);
-}
 
 /* تحسين قسم عنا بشكل كبير */
 #about {
@@ -441,10 +400,6 @@ h2:after {
   transition: 0.3s;
 }
 
-.feature:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 217, 0, 0.2);
-}
 
 .feature i {
   color: gold;
@@ -483,9 +438,6 @@ h2:after {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-#about .gallary .main img:hover {
-  transform: scale(1.02);
-}
 
 #about .gallary .photos {
   width: 100%;
@@ -619,12 +571,6 @@ h2:after {
   margin-top: 10px;
 }
 
-#contact .form button:hover {
-  background-color: #222;
-  color: gold;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
-}
 
 /* تحسين الفوتر */
 footer {
@@ -660,10 +606,6 @@ footer .developer a {
   text-decoration: none;
 }
 
-footer .developer a:hover {
-  text-decoration: underline;
-}
-
 /* زر الرجوع للأعلى */
 #scrollTopBtn {
   position: fixed;
@@ -689,12 +631,6 @@ footer .developer a:hover {
   transition: all 0.3s ease;
 }
 
-#scrollTopBtn:hover {
-  background-color: #222;
-  color: gold;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
 
 #scrollTopBtn.show {
   opacity: 1;
@@ -909,10 +845,6 @@ footer .developer a:hover {
   color: #222;
 }
 
-.cart-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 217, 0, 0.3);
-}
 
 .empty-cart {
   text-align: center;
@@ -1031,10 +963,7 @@ footer .developer a:hover {
   transition: 0.3s;
 }
 
-.mobile-menu ul a:hover {
-  color: gold;
-  background-color: rgba(255, 217, 0, 0.1);
-}
+
 
 /* التكيف مع الشاشات الصغيرة */
 @media (max-width: 1200px) {
